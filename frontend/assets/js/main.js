@@ -277,7 +277,7 @@ questionsDOM.forEach((card) => {
 
   const data = await res.json();
   if (res.ok) {
-    const shareableLink = `http://localhost:3000/pages/writeTest.html?testID=${data.testID}`;
+    const shareableLink = `https://inquiza.netlify.app/pages/writeTest.html?testID=${data.testID}`;
 document.getElementById('testIdDisplay').innerHTML = `
   ✔ Test Created!<br>
   <strong>Test ID:</strong> ${data.testID}<br>
