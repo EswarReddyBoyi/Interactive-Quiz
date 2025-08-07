@@ -5,6 +5,7 @@ An interactive full-stack quiz system where:
 -  Users can take quizzes using test IDs or shareable links, view results, and download full PDF scorecards.
 -  All results are stored, visible in a dashboard, and restricted by attempt limits.
 
+Live Demo: [[https://aidea-chatbot.onrender.com](https://inquiza.netlify.app)]
 ---
 
 ## Features
@@ -196,6 +197,7 @@ Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
 🌐 GitHub: [https://github.com/yourusername](https://github.com/22BCE8093-Eswar)
+
 
 
 
