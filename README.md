@@ -202,14 +202,14 @@ Make sure to use the deployed backend URL in all frontend API calls.
 📜 License
 MIT License
 Eswar Reddy Boyi
-
-Your GitHub Username
+22BCE8093-Eswar
 
 📞 Contact
 Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
-🌐 GitHub: [https://github.com/yourusername](https://github.com/22BCE8093-Eswar)
+🌐 GitHub: [https://github.com/22BCE8093-Eswar](https://github.com/22BCE8093-Eswar)
+
 
 
 
