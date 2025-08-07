@@ -183,8 +183,21 @@ The result (score + answers) is sent to test creator’s email or logged in back
 
 Each supports:
 Optional hint
-
 Optional image
+
+### Deployment Links
+🔸 Frontend (Netlify)
+URL: https://inquiza.netlify.app
+Deployed using Netlify. This is the main web interface where users can register, log in, take tests, and view their results.
+
+🔸 Backend (Render)
+URL: https://iq-backend-ys3b.onrender.com
+Hosted on Render. This handles all API requests such as authentication, test creation, submission, and result storage.
+
+### CORS Configuration
+To ensure the frontend and backend communicate securely across domains:
+The backend includes proper CORS headers allowing requests from https://inquiza.netlify.app.
+Make sure to use the deployed backend URL in all frontend API calls.
 
 📜 License
 MIT License
@@ -197,6 +210,7 @@ Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
 🌐 GitHub: [https://github.com/yourusername](https://github.com/22BCE8093-Eswar)
+
 
 
 
