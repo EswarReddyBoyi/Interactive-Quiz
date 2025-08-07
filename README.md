@@ -1,4 +1,4 @@
-#  InQuiza - Interactive Quiz Web App
+#  InQuiza - Interactive Quiz 
 
 An interactive full-stack quiz system where:
 -  Admins can create custom quizzes with questions, hints, images, and constraints.
@@ -196,6 +196,7 @@ Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
 🌐 GitHub: [https://github.com/yourusername](https://github.com/22BCE8093-Eswar)
+
 
 
 
