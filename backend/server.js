@@ -9,7 +9,10 @@ const resultRoutes = require('./routes/resultRoutes');
 dotenv.config();
 connectDB();
 const app = express();
-
+app.use(cors({
+  origin: ['https://inquiza.netlify.app'], // ✅ allow Netlify domain
+  credentials: true // if you're using cookies/session
+}));
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 app.use(cors());
