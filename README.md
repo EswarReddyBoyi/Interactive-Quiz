@@ -113,28 +113,28 @@ GOOGLE_CLIENT_ID	Google OAuth2 client ID for Google Sign-In
 
 ### Screenshots
 ### Home Page
-<img src="assets/images/indexpages.png" width="400"/> <img src="screenshots/indexpage.png" width="400"/>
+<img src="frontend/assets/images/indexpages.png" width="400"/> <img src="frontend/screenshots/indexpage.png" width="400"/>
 
 ### Dashboard
-<img src="assets/images/dashboard.png" width="400"/>
+<img src="frontend/assets/images/dashboard.png" width="400"/>
 
 ### Result Page
-<img src="assets/images/viewresults.png" width="400"/>
+<img src="frontend/assets/images/viewresults.png" width="400"/>
 
 ### Write Test Page
-<img src="assets/images/writetest.png" width="400"/>
+<img src="frontend/assets/images/writetest.png" width="400"/>
 
 ### Create Test Page
-<img src="assets/images/createtest.png" width="400"/>
+<img src="frontend/assets/images/createtest.png" width="400"/>
 
 ### Settings Page
-<img src="assets/images/settings.png" width="400"/>
+<img src="frontend/assets/images/settings.png" width="400"/>
 
 ### Login Page
-<img src="assets/images/settings.png" width="400"/>
+<img src="frontend/assets/images/settings.png" width="400"/>
 
 ### Register Page
-<img src="assets/images/settings.png" width="400"/>
+<img src="frontend/assets/images/settings.png" width="400"/>
 
 
 ### Example Test Flow
@@ -181,6 +181,7 @@ Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
 🌐 GitHub: [https://github.com/yourusername](https://github.com/22BCE8093-Eswar)
+
 
 
 
