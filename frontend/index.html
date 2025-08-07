@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inquiza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <div class="floating-icons">
+  <img src="../assets/icons/book.png" class="floating-icon" />
+  <img src="../assets/icons/pencil.png" class="floating-icon" />
+  <img src="../assets/icons/bulb.png" class="floating-icon" />
+  <img src="../assets/icons/education.png" class="floating-icon" />
+  <img src="../assets/icons/graduation-hat.png" class="floating-icon" />
+  <img src="../assets/icons/signature.png" class="floating-icon" />
+  <img src="../assets/icons/pencil-and-paper.png" class="floating-icon" />
+  <img src="../assets/icons/homework.png" class="floating-icon" />
+  <img src="../assets/icons/homeworkk.png" class="floating-icon" />
+  <img src="../assets/icons/stack-of-books.png" class="floating-icon" />
+</div>
+  <div class="flip-container" id="flipCard">
+    <div class="flipper">
+      <div class="front">
+        <img src="assets/images/index.png" alt="Welcome to Inquiza" class="welcome-image" />
+      </div>
+<div class="back">
+  <div class="container home-box">
+
+    <div class="logo-wrapper">
+    <img src="./assets/images/index2.png" alt="InQuiza Logo" class="back-logo" />
+    </div>
+
+    <h1>Your Gateway to Smarter Assessments</h1>
+    <p>Interactive, Insightful, Intuitive</p>
+
+    <div class="nav-buttons">
+      <a href="./pages/login.html" class="btn">Login</a>
+      <a href="./pages/register.html" class="btn">Register</a>
+    </div>
+
+  </div>
+</div>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const icons = document.querySelectorAll('.floating-icon');
+
+    icons.forEach(icon => {
+      const randomTop = Math.floor(Math.random() * 90);    
+      const randomLeft = Math.floor(Math.random() * 90);   
+      const duration = Math.random() * 5 + 5;              
+      const delay = Math.random() * 5;                      
+
+      icon.style.top = `${randomTop}%`;
+      icon.style.left = `${randomLeft}%`;
+      icon.style.animationDuration = `${duration}s`;
+      icon.style.animationDelay = `${delay}s`;
+    });
+  });
+</script>
+
+
+</body>
+</html>

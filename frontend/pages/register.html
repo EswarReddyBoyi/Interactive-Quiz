@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register - Interactive Quiz</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+</head>
+<body>
+  <div class="floating-icons">
+  <img src="../assets/icons/book.png" class="floating-icon" />
+  <img src="../assets/icons/pencil.png" class="floating-icon" />
+  <img src="../assets/icons/bulb.png" class="floating-icon" />
+  <img src="../assets/icons/education.png" class="floating-icon" />
+  <img src="../assets/icons/graduation-hat.png" class="floating-icon" />
+  <img src="../assets/icons/signature.png" class="floating-icon" />
+  <img src="../assets/icons/pencil-and-paper.png" class="floating-icon" />
+  <img src="../assets/icons/homework.png" class="floating-icon" />
+  <img src="../assets/icons/homeworkk.png" class="floating-icon" />
+  <img src="../assets/icons/stack-of-books.png" class="floating-icon" />
+</div>
+
+  <div class="animated-bg"></div>
+
+  <div class="container auth-box">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" placeholder="Full Name" id="name" required />
+      <input type="email" placeholder="Email" id="email" required />
+      <input type="password" placeholder="Password" id="password" required />
+      <button type="submit">Register</button>
+      <p>Already have an account? <a href="login.html" onclick="flipCard()">Login</a></p>
+    </form>
+  </div>
+  <div id="g_id_onload"
+     data-client_id="841137206476-qmqkjdeika33lt2le4m9pjge6805e8mc.apps.googleusercontent.com"
+     data-context="signin"
+     data-callback="handleGoogleSignIn"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="pill"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="large">
+</div>
+<div id="toastContainer" class="toast-container"></div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const icons = document.querySelectorAll('.floating-icon');
+
+    icons.forEach(icon => {
+      const randomTop = Math.floor(Math.random() * 90);    // 0% to 90% top
+      const randomLeft = Math.floor(Math.random() * 90);   // 0% to 90% left
+      const duration = Math.random() * 5 + 5;               // 5s to 10s
+      const delay = Math.random() * 5;                      // 0s to 5s
+
+      icon.style.top = `${randomTop}%`;
+      icon.style.left = `${randomLeft}%`;
+      icon.style.animationDuration = `${duration}s`;
+      icon.style.animationDelay = `${delay}s`;
+    });
+  });
+</script>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

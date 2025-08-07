@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile Settings</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="profile-page">
+  <div class="top-left-logo">
+    <img src="../assets/images/logo.png" alt="Logo" />
+  </div>
+
+  <div class="container profile-container">
+    <h2>👤 Profile</h2>
+
+    <form id="profileForm">
+      <label>Username:</label>
+      <input type="text" id="username" readonly />
+
+      <label>Full Name:</label>
+      <input type="text" id="fullName" readonly />
+
+      <label>Email:</label>
+      <input type="email" id="email" readonly />
+
+      <label>Phone:</label>
+      <input type="tel" id="phone" readonly />
+
+      <label>Age:</label>
+      <input type="number" id="age" readonly />
+
+      <label>Bio:</label>
+      <textarea id="bio" readonly></textarea>
+
+      <button type="button" id="editBtn">✏️ Edit</button>
+      <button type="submit" id="saveBtn" style="display: none;">💾 Save</button>
+    </form>
+
+    <button class="back-button" onclick="goBack()">⬅ Back</button>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script>
+    function goBack() {
+      window.location.href = 'dashboard.html';
+    }
+
+    const form = document.getElementById('profileForm');
+    const inputs = form.querySelectorAll('input, textarea');
+    const editBtn = document.getElementById('editBtn');
+    const saveBtn = document.getElementById('saveBtn');
+
+    // Load profile data
+    window.addEventListener('DOMContentLoaded', () => {
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
+      document.getElementById('username').value = user.username || '';
+      document.getElementById('fullName').value = user.fullName || '';
+      document.getElementById('email').value = user.email || '';
+      document.getElementById('phone').value = user.phone || '';
+      document.getElementById('age').value = user.age || '';
+      document.getElementById('bio').value = user.bio || '';
+    });
+
+    // Enable editing
+    editBtn.addEventListener('click', () => {
+      inputs.forEach(input => input.removeAttribute('readonly'));
+      editBtn.style.display = 'none';
+      saveBtn.style.display = 'inline-block';
+    });
+
+    // Save changes
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const updatedUser = {
+        username: document.getElementById('username').value,
+        fullName: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        age: document.getElementById('age').value,
+        bio: document.getElementById('bio').value,
+      };
+
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      //alert(' Profile updated successfully!');
+      showToast('Profile updated Successfully!', 'success');
+      inputs.forEach(input => input.setAttribute('readonly', true));
+      saveBtn.style.display = 'none';
+      editBtn.style.display = 'inline-block';
+    });
+  </script>
+  <script>
+  function showToast(message, type = 'info') {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    document.getElementById('toastContainer').appendChild(toast);
+
+    setTimeout(() => toast.remove(), 3000);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Write Test - Interactive Quiz</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="createtest">
+  <div class="top-left-logo">
+  <img src="../assets/images/logo.png" alt="Logo" />
+</div>
+<div class="floating-icons">
+  <img src="../assets/icons/book.png" class="floating-icon" />
+  <img src="../assets/icons/pencil.png" class="floating-icon" />
+  <img src="../assets/icons/bulb.png" class="floating-icon" />
+  <img src="../assets/icons/education.png" class="floating-icon" />
+  <img src="../assets/icons/graduation-hat.png" class="floating-icon" />
+  <img src="../assets/icons/signature.png" class="floating-icon" />
+  <img src="../assets/icons/pencil-and-paper.png" class="floating-icon" />
+  <img src="../assets/icons/homework.png" class="floating-icon" />
+  <img src="../assets/icons/homeworkk.png" class="floating-icon" />
+  <img src="../assets/icons/stack-of-books.png" class="floating-icon" />
+</div>
+  <div class="container quiz-box">
+    <h2>Take a Test</h2>
+    <div id="testIdInputContainer">
+      <input type="text" id="testIDInput" placeholder="Enter Test ID" />
+      <button id="startTestBtn">Start Test</button>
+    </div>
+
+    <div id="quizContainer" style="display: none;">
+      <div id="timer" class="timer-box">
+        Time Left: <span id="timeDisplay">--:--</span>
+      </div>
+
+      <div id="questionBox"></div>
+
+      <div class="navigation-buttons">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+        <button id="submitBtn" style="display: none;">Submit</button>
+      </div>
+
+      <p id="scoreDisplay"></p>
+    </div>
+<div id="toastContainer" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
+    <button class="back-button" onclick="goBack()">⬅ Back</button>
+  </div>
+
+  <script>
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('token');
+      const testID = getQueryParam('testID');
+
+      if (!token) {
+        const redirectURL = `login.html?redirect=writeTest.html&testID=${testID || ''}`;
+        window.location.href = redirectURL;
+        return;
+      }
+      if (testID) {
+        document.getElementById('testIDInput').value = testID;
+      }
+    });
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+ <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const icons = document.querySelectorAll('.floating-icon');
+
+    icons.forEach(icon => {
+      const randomTop = Math.floor(Math.random() * 90);   
+      const randomLeft = Math.floor(Math.random() * 90);   
+      const duration = Math.random() * 5 + 5;               
+      const delay = Math.random() * 5;                     
+
+      icon.style.top = `${randomTop}%`;
+      icon.style.left = `${randomLeft}%`;
+      icon.style.animationDuration = `${duration}s`;
+      icon.style.animationDelay = `${delay}s`;
+    });
+  });
+</script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
