@@ -1,5 +1,5 @@
 // BACKEND URL 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://iq-backend-ys3b.onrender.com';
 
 const { jsPDF } = window.jspdf || {};
 
