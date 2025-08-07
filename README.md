@@ -112,28 +112,44 @@ JWT_SECRET	Secret for signing JWT tokens
 GOOGLE_CLIENT_ID	Google OAuth2 client ID for Google Sign-In
 
 ### Screenshots
-### Home Page
-<img src="frontend/assets/images/indexpages.png" width="400"/>                                 <img src="frontend/assets/images/indexpage.png" width="400"/>
+<table>
+  <tr>
+    <th> Home Page</th>
+    <th> Home Page</th>
+    <th> Dashboard</th>
+  </tr>
+  <tr>
+    <td><img src="frontend/assets/images/indexpages.png" width="270"/> </td>
+    <td><img src="frontend/assets/images/indexpage.png" width="270"/> </td>
+    <td><img src="frontend/assets/images/dashboard.png" width="270"/></td>
+  </tr>
+</table>
 
-### Login Page                                                                                  ### Register Page
-<img src="frontend/assets/images/login.png" width="400"/>                                       <img src="frontend/assets/images/register.png" width="400"/>
+<table>
+  <tr>
+    <th> Login Page</th>
+    <th> Register Page</th>
+    <th> Settings</th>
+  </tr>
+  <tr>
+    <td><img src="frontend/assets/images/login.png" width="270"/></td>
+    <td><img src="frontend/assets/images/register.png" width="270"/></td>
+    <td><img src="frontend/assets/images/settings.png" width="270"/></td>
+  </tr>
+</table>
 
-### Dashboard                                                                                   ### Settings Page
-<img src="frontend/assets/images/dashboard.png" width="400"/>                                   <img src="frontend/assets/images/settings.png" width="400"/>
-
-
-### Result Page
-<img src="frontend/assets/images/viewresults.png" width="400"/>
-
-### Write Test Page
-<img src="frontend/assets/images/writeTest.png" width="400"/>
-
-### Create Test Page
-<img src="frontend/assets/images/createTest.png" width="400"/>
-
-
-
-
+<table>
+  <tr>
+    <th> Result Page</th>
+    <th> Write Test Page</th>
+    <th> Create Test Page</th>
+  </tr>
+  <tr>
+    <td><img src="frontend/assets/images/viewresults.png" width="270"/></td>
+    <td><img src="frontend/assets/images/writeTest.png" width="270"/></td>
+    <td><img src="frontend/assets/images/createTest.png" width="270"/></td>
+  </tr>
+</table>
 
 
 ### Example Test Flow
@@ -180,6 +196,7 @@ Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
 🌐 GitHub: [https://github.com/yourusername](https://github.com/22BCE8093-Eswar)
+
 
 
 
