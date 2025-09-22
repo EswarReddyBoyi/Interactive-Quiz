@@ -74,7 +74,7 @@ Live Demo: [https://inquiza.netlify.app](https://inquiza.netlify.app)
 ### 1. Clone the Repo
 
 ```bash
-git clone [https://github.com/yourusername/interactive-quiz.git](https://github.com/22BCE8093-Eswar/Interactive-Quiz)
+git clone https://github.com/EswarReddyBoyi/interactive-quiz.git
 cd interactive-quiz
 ```
 
@@ -208,7 +208,8 @@ Eswar Reddy Boyi
 Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
-🌐 GitHub: [https://github.com/22BCE8093-Eswar](https://github.com/22BCE8093-Eswar)
+🌐 GitHub: [https://github.com/EswarReddyBoyi](https://github.com/EswarReddyBoyi)
+
 
 
 
