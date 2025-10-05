@@ -361,7 +361,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function showQuestion() {
   const q = quizData.questions[currentQuestionIndex];
   const container = document.getElementById('questionBox');
-    if (!q) {
+  if (!q) {
     container.innerHTML = '<p>Question not found.</p>';
     return;
   }
@@ -384,55 +384,32 @@ function showQuestion() {
   }
 
   container.innerHTML = `
-  <div class="question-wrapper">
-    <div class="hint-toggle-container">
-      <button class="hint-toggle-btn">💡 Show Hint</button>
-      <p class="hint-block" style="display: none;">${q.hint || 'No hint provided'}</p>
+    <div class="question-wrapper">
+      <div class="hint-toggle-container">
+        <button class="hint-toggle-btn">💡 Show Hint</button>
+        <p class="hint-block" style="display: none;">${q.hint || 'No hint provided'}</p>
+      </div>
+
+      <h3 style="margin-bottom: 10px;">${q.questionText}</h3>
+      ${q.image ? `<img src="${q.image}" alt="Question Image" class="question-image" />` : ''}
+      ${optionsHtml}
     </div>
+  `;
 
-    <h3 style="margin-bottom: 10px;">${q.questionText}</h3>
+  // --- Hint toggle ---
+  container.querySelector('.hint-toggle-btn')?.addEventListener('click', (e) => {
+    const hint = container.querySelector('.hint-block');
+    const btn = e.target;
+    if (hint.style.display === 'none') {
+      hint.style.display = 'block';
+      btn.textContent = '💡 Hide Hint';
+    } else {
+      hint.style.display = 'none';
+      btn.textContent = '💡 Show Hint';
+    }
+  });
 
-    ${q.image ? `<img src="${q.image}" alt="Question Image" class="question-image" />` : ''}
-
-    ${optionsHtml}
-  </div>
-`;
-
-container.querySelector('.hint-toggle-btn')?.addEventListener('click', (e) => {
-  const hint = container.querySelector('.hint-block');
-  const btn = e.target;
-
-  if (hint.style.display === 'none') {
-    hint.style.display = 'block';
-    btn.textContent = '💡 Hide Hint';
-  } else {
-    hint.style.display = 'none';
-    btn.textContent = '💡 Show Hint';
-  }
-});
-document.getElementById('nextBtn')?.addEventListener('click', () => {
-  if (currentQuestionIndex < quizData.questions.length - 1) {
-    currentQuestionIndex++;
-    showQuestion();
-  }
-});
-
-document.getElementById('prevBtn')?.addEventListener('click', () => {
-  if (currentQuestionIndex > 0) {
-    currentQuestionIndex--;
-    showQuestion();  
-  }
-});
-
-  document.getElementById('prevBtn').style.display =
-    currentQuestionIndex > 0 ? 'inline-block' : 'none';
-
-  document.getElementById('nextBtn').style.display =
-    currentQuestionIndex < quizData.questions.length - 1 ? 'inline-block' : 'none';
-
-  document.getElementById('submitBtn').style.display =
-    currentQuestionIndex === quizData.questions.length - 1 ? 'inline-block' : 'none';
-
+  // --- Save user answer ---
   if (q.type === 'BLANK') {
     container.querySelector('.blank-input').addEventListener('input', (e) => {
       userAnswers[currentQuestionIndex] = e.target.value.trim();
@@ -444,7 +421,38 @@ document.getElementById('prevBtn')?.addEventListener('click', () => {
       })
     );
   }
+
+  // --- Navigation Button Logic ---
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const submitBtn = document.getElementById('submitBtn');
+const topSubmitBtn = document.getElementById('topSubmitBtn');
+
+prevBtn.style.display = currentQuestionIndex > 0 ? 'inline-block' : 'none';
+nextBtn.style.display = currentQuestionIndex < quizData.questions.length - 1 ? 'inline-block' : 'none';
+
+// Show bottom submit button only on last question
+submitBtn.style.display = currentQuestionIndex === quizData.questions.length - 1 ? 'inline-block' : 'none';
+
+// 🔹 Show top-right submit button on all questions
+topSubmitBtn.style.display = 'inline-block';
+
 }
+
+// --- Add event listeners only ONCE ---
+document.getElementById('nextBtn')?.addEventListener('click', () => {
+  if (currentQuestionIndex < quizData.questions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion();
+  }
+});
+
+document.getElementById('prevBtn')?.addEventListener('click', () => {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    showQuestion();
+  }
+});
 
 
 document.getElementById('submitBtn')?.addEventListener('click', async () => {
@@ -486,6 +494,44 @@ showToast('✔ Test submitted successfully!', 'success');
 
 });
 
+document.getElementById('topSubmitBtn')?.addEventListener('click', async () => {
+  clearInterval(timer); 
+
+  let score = 0;
+  const total = quizData.questions.length;
+
+  quizData.questions.forEach((q, i) => {
+    if (userAnswers[i] === q.correctAnswer) score++;
+  });
+
+  document.getElementById('scoreDisplay').innerText = `✔ You scored ${score} out of ${total}`;
+  showToast('Test Submitted successfully!', 'success');
+
+  const token = localStorage.getItem('token');
+  await fetch(`${BASE_URL}/result/submit`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      score,
+      total,
+      testID: quizData.testID,
+      userAnswers,
+    }),
+  });
+const data = await res.json();
+
+if (!res.ok) {
+  showToast(data.msg || '× Submission failed.', 'error');
+  return;
+}
+
+showToast('✔ Test submitted successfully!', 'success');
+
+
+});
 /* ------------------ Dashboard: Load Results ------------------ */
 async function loadResults() {
   const token = localStorage.getItem('token');
