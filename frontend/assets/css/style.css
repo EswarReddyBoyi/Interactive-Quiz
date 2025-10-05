@@ -1182,3 +1182,24 @@ input[type="checkbox"]:checked::after {
   background: #177b41;
   color: white;
 }
+
+/* 🔹 Top-right Submit button styling */
+.top-submit-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #d16ba5, #7a5479, #9d50ba);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 10;
+}
+
+.top-submit-btn:hover {
+  background: 0 8px 20px rgba(209, 107, 165, 0.6);
+}
+
