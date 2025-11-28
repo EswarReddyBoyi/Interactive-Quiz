@@ -112,6 +112,8 @@ MONGODB_URI	MongoDB Atlas connection string
 JWT_SECRET	Secret for signing JWT tokens
 GOOGLE_CLIENT_ID	Google OAuth2 client ID for Google Sign-In
 
+--------
+
 ### Screenshots
 <table>
   <tr>
@@ -185,6 +187,8 @@ Each supports:
 Optional hint
 Optional image
 
+-----------------
+
 ### Deployment Links
 🔸 Frontend (Netlify)
 URL: https://inquiza.netlify.app
@@ -199,16 +203,21 @@ To ensure the frontend and backend communicate securely across domains:
 The backend includes proper CORS headers allowing requests from https://inquiza.netlify.app.
 Make sure to use the deployed backend URL in all frontend API calls.
 
-📜 License
+------------
+
+### License
 MIT License
 Eswar Reddy Boyi
 22BCE8093-Eswar
 
-📞 Contact
+---------
+
+### Contact
 Have questions or need help?
 
 📧 Email: eswarboyi7@gmail.com
 🌐 GitHub: [https://github.com/EswarReddyBoyi](https://github.com/EswarReddyBoyi)
+
 
 
 
